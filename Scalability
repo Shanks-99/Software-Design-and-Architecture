@@ -1,0 +1,19 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class ScalableRequestCounter {
+    private AtomicInteger count = new AtomicInteger(0);
+
+    public void handleRequest() {
+        int currentCount = count.incrementAndGet();
+        System.out.println("Request count: " + currentCount);
+    }
+
+    public static void main(String[] args) {
+        ScalableRequestCounter counter = new ScalableRequestCounter();
+
+        // Simulate 3 requests
+        counter.handleRequest();
+        counter.handleRequest();
+        counter.handleRequest();
+    }
+}
